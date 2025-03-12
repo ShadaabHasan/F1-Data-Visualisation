@@ -16,7 +16,7 @@ Data_Drivers_Points_Total <- data.frame(sqldf("select a.driverRef as Driver, sum
 view(Data_Drivers_Points_Total)
 
 ggplot(Data_Drivers_Points_Total, aes(x = Driver, y = Points_Total)) +
-  geom_bar(stat = "identity", fill = "blue") +
+  geom_bar(stat = "identity", fill="blue") +
   coord_flip() +
   labs(title = "Top 10 F1 Drivers by Total Points", x = "Driver", y = "Total Points")
 
@@ -26,4 +26,12 @@ ggplot(Data_Drivers_Points_Total, aes(x = reorder(Driver,Points_Total), y = Poin
   coord_flip() +
   labs(title = "Top 10 F1 Drivers by Total Points", x = "Driver", y = "Total Points")
 
-ggsave()
+races <- read_csv("F1 data/races.csv")
+view(races)
+
+#Plotting the total number of races in each year 
+  race_per_year <- data.frame(sqldf("select year from races")) 
+
+  view(race_per_year)
+  ggplot(race_per_year, aes(x=year))+geom_bar()
+
