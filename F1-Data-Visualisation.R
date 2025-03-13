@@ -1,6 +1,7 @@
 library(tidyverse)
 library(sqldf)
 library(ggplot2)
+library(lubridate)
 circuits <- read_csv("F1 data/circuits.csv")
 drivers <- read_csv("F1 data/drivers.csv")
 results <- read_csv("F1 data/results.csv")
@@ -26,12 +27,36 @@ ggplot(Data_Drivers_Points_Total, aes(x = reorder(Driver,Points_Total), y = Poin
   coord_flip() +
   labs(title = "Top 10 F1 Drivers by Total Points", x = "Driver", y = "Total Points")
 
-races <- read_csv("F1 data/races.csv")
+races <- read_csv("F1 data/races.csv", col_types = cols(date = col_date(format = "%Y-%m-%d")))
 view(races)
+str(races)
 
-#Plotting the total number of races in each year 
-  race_per_year <- data.frame(sqldf("select year from races")) 
-
+#Plotting the number of races in each year
+  race_per_year <- races %>% count(year)
   view(race_per_year)
-  ggplot(race_per_year, aes(x=year))+geom_bar()
+  ggplot(race_per_year, aes(x=year, y=n))+geom_bar(stat="identity")+
+    labs(title="Number of Races Per Year in Formula 1",x="Year", y="Number of Races")
 
+#Plotting the highest number of winners on a circuit to analyze dominance trend
+  lap_times <- read_csv("F1 data/lap_times.csv")
+  lap_times <- lap_times %>%
+    mutate(milliseconds = hour(time) * 60000 + minute(time)*1000, #since the time format is in hms instead of msms
+           minutes = milliseconds %/% 60000,       # Extract minutes
+           seconds = (milliseconds %% 60000) %/% 1000,  # Extract seconds
+           milliseconds = milliseconds %% 1000,    # Extract milliseconds
+           
+           formatted_time = sprintf("%02d:%02d:%02d", minutes, seconds, milliseconds))    # Convert seconds to ms
+  view(lap_times)
+  laptime_distribution <- data.frame(sqldf("select a.driverId, a.driverRef as Driver, b.name as RaceName, 
+                                           b.circuitId as CircuitId, c.formatted_time as LapTime, b.date as Date,
+                                           MIN(c.formatted_time) AS Fastest_LapTime
+                                           from lap_times c
+                                           left join drivers a on a.driverId = c.driverId
+                                           left join races b on b.raceId=c.raceId
+                                           group by circuitId"))  
+  
+  laptime_distribution$Date <- as.Date(laptime_distribution$Date)
+  
+  view(laptime_distribution)  
+  ggplot(laptime_distribution, aes(x=RaceName, y=Fastest_LapTime) +geom_point()) 
+      
