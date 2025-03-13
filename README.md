@@ -22,7 +22,7 @@ The project utilizes multiple datasets, including:
 1. **Top 10 Drivers by Total Points:**
    - Uses SQL (`sqldf`) to aggregate driver points and rank them.
    - Displays results in a horizontal bar chart with `ggplot2`.
-     ![image](https://github.com/user-attachments/assets/117b17e9-80b7-4112-ac98-821b907d1b7c)
+     ![image](https://github.com/user-attachments/assets/d17455eb-01b9-4b8b-a7a3-b3cbf8eeb1ea)
 
 
 
@@ -30,7 +30,10 @@ The project utilizes multiple datasets, including:
    - Identifies the total number of races in each season.
    - Gives insight on the increasing number of races every year
    - Uses `ggplot2` to create a bar graph showing distribution over time.
-     ![image](https://github.com/user-attachments/assets/8ddb575c-2881-4b9a-8b4f-a7a58db0844e)
+     ![image](https://github.com/user-attachments/assets/c9eeac74-1fea-48ba-b5ae-1fe40e223f8a)
+   
+
+
 
 
 3. **Circuit Performance Analysis:**
