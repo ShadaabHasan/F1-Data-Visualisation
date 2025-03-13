@@ -33,10 +33,16 @@ The project utilizes multiple datasets, including:
      ![image](https://github.com/user-attachments/assets/c9eeac74-1fea-48ba-b5ae-1fe40e223f8a)
    
 
+3. **Fastest Lap at Each Circuit:**  
+   - Identifies the fastest lap time set at each circuit by a driver.  
+   - Highlights performance trends across different tracks over time.  
+   - Provides insight into car advancements and driver capabilities in Formula 1.
+     ![image](https://github.com/user-attachments/assets/dfd617df-ce8a-44a3-ac2c-8fe0da6ea5a8)
+
+   
 
 
-
-3. **Circuit Performance Analysis:**
+4. **Circuit Performance Analysis:**
    - Extracts race winners by circuit and visualizes dominance trends.
 
 ## Future Improvements
