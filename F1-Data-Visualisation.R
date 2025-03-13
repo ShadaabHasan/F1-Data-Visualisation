@@ -53,10 +53,16 @@ str(races)
                                            from lap_times c
                                            left join drivers a on a.driverId = c.driverId
                                            left join races b on b.raceId=c.raceId
-                                           group by circuitId"))  
+                                           group by circuitId
+                                           order by Fastest_LapTime Asc
+                                           "))  
   
   laptime_distribution$Date <- as.Date(laptime_distribution$Date)
+  laptime_distribution_final<- laptime_distribution[-(1:4),]
   
-  view(laptime_distribution)  
-  ggplot(laptime_distribution, aes(x=RaceName, y=Fastest_LapTime) +geom_point()) 
-      
+  view(laptime_distribution_final)  
+  ggplot(laptime_distribution_final, aes(x=RaceName, y=Fastest_LapTime, label=Driver, color=Driver))+
+    geom_point()+ theme(axis.text.x = element_text(angle = 55, hjust = 1))+ 
+    labs(x="Circuit", y="Fastest Lap")
+  
+  
