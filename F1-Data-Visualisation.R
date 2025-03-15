@@ -31,13 +31,27 @@ races <- read_csv("F1 data/races.csv", col_types = cols(date = col_date(format =
 view(races)
 str(races)
 
+#Plotting top 10 Drivers by Most number of wins in f1
+Most_wins <- data.frame(sqldf("select b.driverID as DriverId,  c.driverRef as Driver,
+                                        sum(Position) as Total_wins 
+                                        from results b 
+                                        left join drivers c on b.driverId=c.driverId
+                                        WHERE Position=1
+                                        group by Driver
+                                        order by Total_wins DESC
+                                        LIMIT 10"))
+view(Most_wins)
+ggplot(Most_wins, aes(x=reorder(Driver, Total_wins), y=Total_wins))+
+  geom_histogram(stat="identity")+coord_flip()+ labs(x="Driver", y="Number of Wins", title= "Top 10 drivers by most number of wins")
+
 #Plotting the number of races in each year
   race_per_year <- races %>% count(year)
   view(race_per_year)
   ggplot(race_per_year, aes(x=year, y=n))+geom_bar(stat="identity")+
     labs(title="Number of Races Per Year in Formula 1",x="Year", y="Number of Races")
 
-#Plotting the highest number of winners on a circuit to analyze dominance trend
+
+#Plotting the fastest laptimes on each circuit geom_point()#Plotting the fastest laptimes on each circuit 
   lap_times <- read_csv("F1 data/lap_times.csv")
   lap_times <- lap_times %>%
     mutate(milliseconds = hour(time) * 60000 + minute(time)*1000, #since the time format is in hms instead of msms
@@ -65,4 +79,13 @@ str(races)
     geom_point()+ theme(axis.text.x = element_text(angle = 55, hjust = 1))+ 
     labs(x="Circuit", y="Fastest Lap")
   
-  
+  #Circuit Dominance
+  circuit_dominance <- data.frame(sqldf("select a.circuitId as CircuitId, a.raceId as RaceId, b.driverID as DriverId,  c.driverRef as Driver,
+                                        b.position as Position,a.year as Year, sum(Position) as Total_wins from races a
+                                        left join results b on a.raceId=b.raceId
+                                        left join drivers c on b.driverId=c.driverId
+                                        WHERE Position=1
+                                        group by Driver
+                                        order by Position ASC
+                                        "))
+view(circuit_dominance)  
