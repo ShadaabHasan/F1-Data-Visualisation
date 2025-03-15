@@ -22,32 +22,37 @@ The project utilizes multiple datasets, including:
 1. **Top 10 Drivers by Total Points:**
    - Uses SQL (`sqldf`) to aggregate driver points and rank them.
    - Displays results in a horizontal bar chart with `ggplot2`.
-     ![image](https://github.com/user-attachments/assets/d17455eb-01b9-4b8b-a7a3-b3cbf8eeb1ea)
 
 2. **Top 10 Drivers by Total Wins:**
    - Uses SQL (`sqldf`) to aggregate driver wins and rank them.
    - Displays results in a horizontal bar chart with `ggplot2`.
-   ![image](https://github.com/user-attachments/assets/02d19c12-3a86-41a8-8924-d6b6e15cfb67)
-
+  
+3. **Distribution of points over the seasons:**
+   - Track how the maximum points awarded to race winners have evolved over different seasons.
+   - Uses SQL (`sqldf`) to find the maximum points given to a winner.
    
 4. **Historical Trends in number of races per Year:**
    - Identifies the total number of races in each season.
    - Gives insight on the increasing number of races every year
    - Uses `ggplot2` to create a bar graph showing distribution over time.
-     ![image](https://github.com/user-attachments/assets/c9eeac74-1fea-48ba-b5ae-1fe40e223f8a)
    
 
 5. **Fastest Lap at Each Circuit:**  
    - Identifies the fastest lap time set at each circuit by a driver.  
    - Highlights performance trends across different tracks over time.  
    - Provides insight into car advancements and driver capabilities in Formula 1.
-     ![image](https://github.com/user-attachments/assets/dfd617df-ce8a-44a3-ac2c-8fe0da6ea5a8)
 
    
-
-
 6. **Circuit Performance Analysis:**
    - Extracts race winners by circuit and visualizes dominance trends.
+  
+
+   <p align="center"><img src="https://github.com/user-attachments/assets/d17455eb-01b9-4b8b-a7a3-b3cbf8eeb1ea" width="45%" />
+   <img src="https://github.com/user-attachments/assets/02d19c12-3a86-41a8-8924-d6b6e15cfb67" width="45%" />
+   <img src="https://github.com/user-attachments/assets/b8b29693-db4c-4537-8d5c-14348efea5d7" width="45%"/>
+   <img src="https://github.com/user-attachments/assets/c9eeac74-1fea-48ba-b5ae-1fe40e223f8a" width="45%" />
+   <img src="https://github.com/user-attachments/assets/dfd617df-ce8a-44a3-ac2c-8fe0da6ea5a8" width="45%" /></p>
+
 
 ## Future Improvements
 - Incorporate machine learning models for predictive analysis.
