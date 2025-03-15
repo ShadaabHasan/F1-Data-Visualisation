@@ -24,16 +24,20 @@ The project utilizes multiple datasets, including:
    - Displays results in a horizontal bar chart with `ggplot2`.
      ![image](https://github.com/user-attachments/assets/d17455eb-01b9-4b8b-a7a3-b3cbf8eeb1ea)
 
+2. **Top 10 Drivers by Total Wins:**
+   - Uses SQL (`sqldf`) to aggregate driver wins and rank them.
+   - Displays results in a horizontal bar chart with `ggplot2`.
+   ![image](https://github.com/user-attachments/assets/02d19c12-3a86-41a8-8924-d6b6e15cfb67)
 
-
-2. **Historical Trends in number of races per Year:**
+   
+4. **Historical Trends in number of races per Year:**
    - Identifies the total number of races in each season.
    - Gives insight on the increasing number of races every year
    - Uses `ggplot2` to create a bar graph showing distribution over time.
      ![image](https://github.com/user-attachments/assets/c9eeac74-1fea-48ba-b5ae-1fe40e223f8a)
    
 
-3. **Fastest Lap at Each Circuit:**  
+5. **Fastest Lap at Each Circuit:**  
    - Identifies the fastest lap time set at each circuit by a driver.  
    - Highlights performance trends across different tracks over time.  
    - Provides insight into car advancements and driver capabilities in Formula 1.
@@ -42,7 +46,7 @@ The project utilizes multiple datasets, including:
    
 
 
-4. **Circuit Performance Analysis:**
+6. **Circuit Performance Analysis:**
    - Extracts race winners by circuit and visualizes dominance trends.
 
 ## Future Improvements
