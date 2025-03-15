@@ -42,19 +42,36 @@ Most_wins <- data.frame(sqldf("select b.driverID as DriverId,  c.driverRef as Dr
                                         LIMIT 10"))
 view(Most_wins)
 ggplot(Most_wins, aes(x=reorder(Driver, Total_wins), y=Total_wins))+
-  geom_histogram(stat="identity")+coord_flip()+ labs(x="Driver", y="Number of Wins", title= "Top 10 drivers by most number of wins")
+  geom_histogram(stat="identity")+coord_flip()+ 
+  labs(x="Driver", y="Number of Wins", title= "Top 10 drivers by most number of wins")
 
+#Here we notice the the top 10 drivers by most number of wins is not the same as
+#Top 10 drivers by total points
+#We can use the data we have to figure out why there is a difference in the same
 #Plotting the number of races in each year
   race_per_year <- races %>% count(year)
   view(race_per_year)
   ggplot(race_per_year, aes(x=year, y=n))+geom_bar(stat="identity")+
     labs(title="Number of Races Per Year in Formula 1",x="Year", y="Number of Races")
-
-
-#Plotting the fastest laptimes on each circuit geom_point()#Plotting the fastest laptimes on each circuit 
+  
+#Plotting total number of points per season
+  max_points <- data.frame(sqldf("select a.year as Year, a.raceId as RaceId, 
+                                   max(b.points) as Points, sum(b.points) as Total_points
+                                   from races a
+                                   left join results b on a.raceId=b.raceId
+                                   group by year"))
+  view(max_points)
+  ggplot(total_points, aes(x=Year,y=Points))+geom_histogram(stat="identity")+
+    labs(title="Maximum Points awarded to the Winner each season")
+  
+#We can see that there were 3 instances where the max points awarded to the drivers
+#was changed, 1st in 1991 from 9 points to 10 points, 2nd in 2010 from 10 points to 25 points,
+#then in 2019 from 25 points to 26 points
+  
+#Plotting the fastest lap times on each circuit 
   lap_times <- read_csv("F1 data/lap_times.csv")
   lap_times <- lap_times %>%
-    mutate(milliseconds = hour(time) * 60000 + minute(time)*1000, #since the time format is in hms instead of msms
+  mutate(milliseconds = hour(time) * 60000 + minute(time)*1000, #since the time format is in hms instead of msms
            minutes = milliseconds %/% 60000,       # Extract minutes
            seconds = (milliseconds %% 60000) %/% 1000,  # Extract seconds
            milliseconds = milliseconds %% 1000,    # Extract milliseconds
