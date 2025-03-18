@@ -46,13 +46,14 @@ The project utilizes multiple datasets, including:
 6. **Circuit Performance Analysis:**
    - Extracts race winners by circuit and visualizes dominance trends.
   
-
-   <p align="center"><img src="https://github.com/user-attachments/assets/d17455eb-01b9-4b8b-a7a3-b3cbf8eeb1ea" width="32%" />
-   <img src="https://github.com/user-attachments/assets/02d19c12-3a86-41a8-8924-d6b6e15cfb67" width="32%" />
-   <img src="https://github.com/user-attachments/assets/b8b29693-db4c-4537-8d5c-14348efea5d7" width="32%"/>
-   <img src="https://github.com/user-attachments/assets/c9eeac74-1fea-48ba-b5ae-1fe40e223f8a" width="32%" />
-   <img src="https://github.com/user-attachments/assets/195769ab-b107-4eb0-b8db-07d3f9766b5e" width="32%" />
-   <img src="https://github.com/user-attachments/assets/8cac5a4f-4354-48f8-8b38-d38a7d3a1dce" width="32%"/></p>
+## Plots Gallery
+Click on the plots to zoom in for a clearer view.
+   <p align="center"><img src="https://github.com/user-attachments/assets/d17455eb-01b9-4b8b-a7a3-b3cbf8eeb1ea" width="25%" />
+   <img src="https://github.com/user-attachments/assets/02d19c12-3a86-41a8-8924-d6b6e15cfb67" width="25%" />
+   <img src="https://github.com/user-attachments/assets/b8b29693-db4c-4537-8d5c-14348efea5d7" width="25%"/>
+   <img src="https://github.com/user-attachments/assets/c9eeac74-1fea-48ba-b5ae-1fe40e223f8a" width="25%" />
+   <img src="https://github.com/user-attachments/assets/195769ab-b107-4eb0-b8db-07d3f9766b5e" width="25%" />
+   <img src="https://github.com/user-attachments/assets/8cac5a4f-4354-48f8-8b38-d38a7d3a1dce" width="25%"/></p>
 
 
 
