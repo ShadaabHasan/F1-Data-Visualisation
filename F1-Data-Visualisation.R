@@ -96,13 +96,30 @@ ggplot(Most_wins, aes(x=reorder(Driver, Total_wins), y=Total_wins))+
     geom_point()+ theme(axis.text.x = element_text(angle = 55, hjust = 1))+ 
     labs(x="Circuit", y="Fastest Lap")
   
-  #Circuit Dominance
-  circuit_dominance <- data.frame(sqldf("select a.circuitId as CircuitId, a.raceId as RaceId, b.driverID as DriverId,  c.driverRef as Driver,
-                                        b.position as Position,a.year as Year, sum(Position) as Total_wins from races a
+  #Finding Drivers dominance over tracks based on the circuits in the 2025 race calendar
+  circuit_wins <- data.frame(sqldf("select a.circuitId as CircuitId, b.driverID as DriverId,  c.driverRef as Driver,
+                                        d.circuitRef as Circuit_Name,
+                                        count(*) as Total_wins 
+                                        from races a
                                         left join results b on a.raceId=b.raceId
                                         left join drivers c on b.driverId=c.driverId
+                                        left join circuits d on d.circuitId=a.circuitId
                                         WHERE Position=1
-                                        group by Driver
-                                        order by Position ASC
+                                        group by d.circuitId, b.driverId
+                                        order by total_wins DESC
                                         "))
-view(circuit_dominance)  
+  view(circuit_wins)  
+  str(circuit_wins)
+
+  max_wins <- data.frame(sqldf("select a.CircuitId, a.Driver
+                               ,a.Circuit_Name,max(a.Total_wins) as MaxWin
+                               from circuit_wins a
+                               where a.circuitId IN (1,17,22,3,77,79,21,6,4,7,70,9,13,11,39,14,73,15,69,32,18,80,78,24)
+                               group by a.circuitId"))
+  view(max_wins)
+  ggplot(max_wins, aes(x=Circuit_Name, y=MaxWin, label=Driver, fill=Driver))+
+    geom_bar(stat = "identity")+scale_fill_brewer(palette = "Set1")+
+    theme(axis.text.x = element_text(angle = 90))
+  
+  
+  
