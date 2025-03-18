@@ -38,7 +38,7 @@ The project utilizes multiple datasets, including:
    
 
 5. **Fastest Lap at Each Circuit:**  
-   - Identifies the fastest lap time set at each circuit by a driver.  
+   - Identifies the fastest lap time set at each circuit in the 2025 calendar by a driver.  
    - Highlights performance trends across different tracks over time.  
    - Provides insight into car advancements and driver capabilities in Formula 1.
 
@@ -51,7 +51,10 @@ The project utilizes multiple datasets, including:
    <img src="https://github.com/user-attachments/assets/02d19c12-3a86-41a8-8924-d6b6e15cfb67" width="45%" />
    <img src="https://github.com/user-attachments/assets/b8b29693-db4c-4537-8d5c-14348efea5d7" width="45%"/>
    <img src="https://github.com/user-attachments/assets/c9eeac74-1fea-48ba-b5ae-1fe40e223f8a" width="45%" />
-   <img src="https://github.com/user-attachments/assets/dfd617df-ce8a-44a3-ac2c-8fe0da6ea5a8" width="45%" /></p>
+   <img src="https://github.com/user-attachments/assets/195769ab-b107-4eb0-b8db-07d3f9766b5e" width="45%" />
+   <img src="https://github.com/user-attachments/assets/8cac5a4f-4354-48f8-8b38-d38a7d3a1dce" width="45%"/></p>
+
+
 
 
 ## Future Improvements
