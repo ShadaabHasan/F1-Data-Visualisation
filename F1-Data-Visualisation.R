@@ -171,3 +171,17 @@ ggplot(Most_wins, aes(x=reorder(Driver, Total_wins), y=Total_wins, fill=Driver))
    scale_color_manual(values = c("Grid Position" = "blue", "Final Position" = "red")) +
    theme(axis.text.x =element_text(angle=55, hjust=1) )
  
+ 
+ #Pit stop time distribution by team
+ 
+ pit_stops <- read.csv("F1 data/pit_stops.csv")
+ view(pit_stops) 
+ 
+  pitstopTeam <- data.frame(sqldf("SELECT a.duration as Time, a.milliseconds as Time_ms,
+                                  b.driverRef as Driver, c.name as RaceName, c.year as Year
+                                  FROM pit_stops a
+                                  left join drivers b on a.driverId=b.driverId
+                                  left join races c on a.raceId=c.raceId
+                                  where year=2024"))
+  view(pitstopTeam)  
+  
