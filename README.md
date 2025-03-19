@@ -55,7 +55,8 @@ The project utilizes multiple datasets, including:
 8. **Visualizing Lewis Hamilton's 2024 F1 Season:**
    - Plotted Grid position and Final race position as a scatterplot to track progression over the 2024 season.
    - Connected Grid positions and Final race positions with lines to show how performance evolved across the season.
-   - Clear differentiation and better visual analysis through seperate red and blue lines for grid position and final position.  
+   - Clear differentiation and better visual analysis through seperate red and blue lines for grid position and final position.
+   - Gaps present in the graph are due to DNF 
 
   
 ## Plots Gallery
