@@ -120,7 +120,8 @@ ggplot(Most_wins, aes(x=reorder(Driver, Total_wins), y=Total_wins, fill=Driver))
   view(max_wins)
   ggplot(max_wins, aes(x=RaceName, y=MaxWin, label=Driver, fill=Driver))+
     geom_bar(stat = "identity")+scale_fill_brewer(palette = "Set1")+
-    theme(axis.text.x = element_text(angle = 90))+labs(x="Circuit", y="Number of Wins", title="Circuit dominance on 2025 circuits")
+    theme(axis.text.x = element_text(angle = 90))+
+    labs(x="Circuit", y="Number of Wins", title="Circuit dominance on 2025 circuits")
   
   
 #Plotting the 2021 season of each driver and their positions in each race
@@ -142,3 +143,31 @@ ggplot(Most_wins, aes(x=reorder(Driver, Total_wins), y=Total_wins, fill=Driver))
     geom_line()+geom_point()+labs(x="Race",y="Points", title="2021 F1 Season")+
     scale_color_manual(values=driver_colors)+
     theme(axis.text.x = element_text(angle = 55, hjust=1))
+  
+  
+  
+  #Grid position vs Final race result 2024 season for Lewis Hamilton 
+  #since he is my favourite driver
+
+  QualivsRace <- data.frame(sqldf("SELECT a.raceId as RaceId, a.position as FinalPosition, 
+                                  a.grid as QualiPosition, b.driverRef as Driver, 
+                                  c.year as Year, c.name as RaceName
+                                  from results a
+                                  left join drivers b on b.driverId=a.driverId
+                                  left join races c on c.raceId=a.raceId
+                                  where year=2024 and a.driverId=1"))  
+ QualivsRace$FinalPosition <- as.numeric(QualivsRace$FinalPosition)
+ 
+ QualivsRace[QualivsRace$RaceId == 1137 & QualivsRace$Driver == "hamilton", "QualiPosition"] <- 7
+ view(QualivsRace)  
+ 
+ ggplot(QualivsRace, aes(x=reorder(RaceName,RaceId)))+
+   geom_line(aes(y = QualiPosition, color = "Grid Position", group=Driver)) +
+   geom_line(aes(y = FinalPosition, color = "Final Position", group = Driver), na.rm=TRUE) +
+   geom_point(aes(y=QualiPosition), color="blue", size=1)+
+   geom_point(aes(y = FinalPosition), color = "red", size = 1, na.rm = FALSE) +
+   scale_y_reverse()+
+   labs(x = "Race", y = "Position", title = "Lewis Hamilton Grid vs Final Position Over the 2024 season")+
+   scale_color_manual(values = c("Grid Position" = "blue", "Final Position" = "red")) +
+   theme(axis.text.x =element_text(angle=55, hjust=1) )
+ 
