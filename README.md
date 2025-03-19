@@ -45,6 +45,13 @@ The project utilizes multiple datasets, including:
    
 6. **Circuit Performance Analysis:**
    - Extracts race winners by circuit and visualizes dominance trends.
+   - Color coded each bar to each driver for clear differentiation and better visual analysis
+
+7. **Visualizing the 2021 F1 Season:**
+   - Plotted driver points as a scatterplot to track their progression over the 2021 season.
+   - Connected race points with lines to show how each driver’s performance evolved across different races.
+   - Assigned unique colors to each driver for clear differentiation and better visual analysis.  
+
   
 ## Plots Gallery
 Click on the plots to zoom in for a clearer view.
@@ -53,7 +60,8 @@ Click on the plots to zoom in for a clearer view.
    <img src="https://github.com/user-attachments/assets/b8b29693-db4c-4537-8d5c-14348efea5d7" width="32%"/>
    <img src="https://github.com/user-attachments/assets/c9eeac74-1fea-48ba-b5ae-1fe40e223f8a" width="32%" />
    <img src="https://github.com/user-attachments/assets/195769ab-b107-4eb0-b8db-07d3f9766b5e" width="32%" />
-   <img src="https://github.com/user-attachments/assets/8cac5a4f-4354-48f8-8b38-d38a7d3a1dce" width="32%"/></p>
+   <img src="https://github.com/user-attachments/assets/8cac5a4f-4354-48f8-8b38-d38a7d3a1dce" width="32%"/>
+   <img src="https://github.com/user-attachments/assets/5ca131c8-2191-49df-aeda-22ba087bb01b" width="32%"/></p>
 
 
 
