@@ -50,7 +50,12 @@ The project utilizes multiple datasets, including:
 7. **Visualizing the 2021 F1 Season:**
    - Plotted driver points as a scatterplot to track their progression over the 2021 season.
    - Connected race points with lines to show how each driver’s performance evolved across different races.
-   - Assigned unique colors to each driver for clear differentiation and better visual analysis.  
+   - Assigned unique colors to each driver for clear differentiation and better visual analysis. 
+
+8. **Visualizing Lewis Hamilton's 2024 F1 Season:**
+   - Plotted Grid position and Final race position as a scatterplot to track progression over the 2024 season.
+   - Connected Grid positions and Final race positions with lines to show how performance evolved across the season.
+   - Clear differentiation and better visual analysis through seperate red and blue lines for grid position and final position.  
 
   
 ## Plots Gallery
@@ -61,7 +66,9 @@ Click on the plots to zoom in for a clearer view.
    <img src="https://github.com/user-attachments/assets/c9eeac74-1fea-48ba-b5ae-1fe40e223f8a" width="32%" />
    <img src="https://github.com/user-attachments/assets/195769ab-b107-4eb0-b8db-07d3f9766b5e" width="32%" />
    <img src="https://github.com/user-attachments/assets/8cac5a4f-4354-48f8-8b38-d38a7d3a1dce" width="32%"/>
-   <img src="https://github.com/user-attachments/assets/5ca131c8-2191-49df-aeda-22ba087bb01b" width="32%"/></p>
+   <img src="https://github.com/user-attachments/assets/5ca131c8-2191-49df-aeda-22ba087bb01b" width="32%"/>
+   <img src="https://github.com/user-attachments/assets/d1505923-ff0a-446f-bccb-fd91bbfa8238" width="32%"/>
+   </p>
 
 
 
