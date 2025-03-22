@@ -74,7 +74,7 @@ Click on the plots to zoom in for a clearer view.
    <img src="https://github.com/user-attachments/assets/8cac5a4f-4354-48f8-8b38-d38a7d3a1dce" width="32%"/>
    <img src="https://github.com/user-attachments/assets/5ca131c8-2191-49df-aeda-22ba087bb01b" width="32%"/>
    <img src="https://github.com/user-attachments/assets/d1505923-ff0a-446f-bccb-fd91bbfa8238" width="32%"/>
-   <img src="https://github.com/user-attachments/assets/5cbac75d-4de1-4837-924d-f8cfd7e131df" width="32%"/>
+   <img src="https://github.com/user-attachments/assets/f05c4fb3-334c-4d0f-bbc7-0ec2cdb6cec7" width="32%"/>
    </p>
 
 
