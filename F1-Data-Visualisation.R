@@ -189,7 +189,10 @@ ggplot(Most_wins, aes(x=reorder(Driver, Total_wins), y=Total_wins, fill=Driver))
                                   order by RaceName,Time_ms ASC"))
   
   view(pitstopTeam)  
-  pitstopTeam_filtered <-pitstopTeam %>% filter(Time_ms < quantile(Time_ms, 0.90))  # Remove top 5% slowest stops
+  
+  #removing extreme outliers to make the plot readable and converting milliseconds to seconds
+  pitstopTeam_filtered <-pitstopTeam %>% filter(Time_ms < quantile(Time_ms, 0.90)) 
+  pitstopTeam_filtered$Time_ms <- pitstopTeam_filtered$Time_ms/1000
   
   ggplot(pitstopTeam_filtered, aes(x = reorder(Constructor, Time_ms, mean), y = Time_ms, fill = Constructor)) +
     geom_boxplot(outlier.colour = "red", outlier.shape = 8, outlier.size = 3)+
