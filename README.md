@@ -58,7 +58,12 @@ The project utilizes multiple datasets, including:
    - Clear differentiation and better visual analysis through seperate red and blue lines for grid position and final position.
    - Gaps present in the graph are due to DNF 
 
-  
+9. **Pit Stop Time Distribution by Team:**
+   - Visualizes pit stop time distribution for each team.  
+   - Removed extreme values using the 90th percentile for clarity.  
+   - Highlights team consistency and variability in pit stops.  
+   - Pit stop times are in seconds for better readability.  
+
 ## Plots Gallery
 Click on the plots to zoom in for a clearer view.
    <p align="center"><img src="https://github.com/user-attachments/assets/d17455eb-01b9-4b8b-a7a3-b3cbf8eeb1ea" width="32%" />
@@ -69,6 +74,7 @@ Click on the plots to zoom in for a clearer view.
    <img src="https://github.com/user-attachments/assets/8cac5a4f-4354-48f8-8b38-d38a7d3a1dce" width="32%"/>
    <img src="https://github.com/user-attachments/assets/5ca131c8-2191-49df-aeda-22ba087bb01b" width="32%"/>
    <img src="https://github.com/user-attachments/assets/d1505923-ff0a-446f-bccb-fd91bbfa8238" width="32%"/>
+   <img src="https://github.com/user-attachments/assets/5cbac75d-4de1-4837-924d-f8cfd7e131df" width="32%"/>
    </p>
 
 
