@@ -172,16 +172,31 @@ ggplot(Most_wins, aes(x=reorder(Driver, Total_wins), y=Total_wins, fill=Driver))
    theme(axis.text.x =element_text(angle=55, hjust=1) )
  
  
- #Pit stop time distribution by team
+ #Pit stop time distribution by team 2024 season
  
+ constructors <- read.csv("F1 data/constructors.csv")
  pit_stops <- read.csv("F1 data/pit_stops.csv")
  view(pit_stops) 
  
-  pitstopTeam <- data.frame(sqldf("SELECT a.duration as Time, a.milliseconds as Time_ms,
-                                  b.driverRef as Driver, c.name as RaceName, c.year as Year
+  pitstopTeam <- data.frame(sqldf("SELECT a.duration as Time, a.milliseconds as Time_ms, a.raceId as RaceId,
+                                  b.driverRef as Driver, c.name as RaceName, c.year as Year, e.name as Constructor
                                   FROM pit_stops a
                                   left join drivers b on a.driverId=b.driverId
                                   left join races c on a.raceId=c.raceId
-                                  where year=2024"))
+                                  left join results d on a.raceId=d.raceId AND a.driverId=d.driverId
+                                  left join constructors e on d.constructorId=e.constructorId
+                                  where year=2024
+                                  order by RaceName,Time_ms ASC"))
+  
   view(pitstopTeam)  
+  pitstopTeam_filtered <-pitstopTeam %>% filter(Time_ms < quantile(Time_ms, 0.90))  # Remove top 5% slowest stops
+  
+  ggplot(pitstopTeam_filtered, aes(x = reorder(Constructor, Time_ms, mean), y = Time_ms, fill = Constructor)) +
+    geom_boxplot(outlier.colour = "red", outlier.shape = 8, outlier.size = 3)+
+    labs(title = "Pit Stop Time Distribution by Team",
+         x = "Team",
+         y = "Pit Stop Time (milliseconds)") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  
   
